@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
-import Joi from 'joi'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import * as Joi from 'joi'
+import { connectionParams } from 'ormconfig'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { DatabaseModule } from './database/database.module'
 import { LogsController } from './logs/logs.controller'
 import { LogsModule } from './logs/logs.module'
 import { RolesModule } from './roles/roles.module'
@@ -31,7 +32,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`
         LOG_LEVEL: Joi.string(),
       }),
     }),
-    DatabaseModule,
+    TypeOrmModule.forRoot(connectionParams),
     UserModule,
     LogsModule,
     RolesModule,
