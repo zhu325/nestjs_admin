@@ -1,5 +1,5 @@
 export class Log {}
-import { User } from '@/users/entities/users.entity'
+import { User } from '@/user/entities/user.entity'
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()

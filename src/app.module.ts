@@ -7,7 +7,7 @@ import { AppController } from './app.controller'
 import { AppService } from './app.service'
 import { LogsModule } from './logs/logs.module'
 import { RolesModule } from './roles/roles.module'
-import { UsersModule } from './users/users.module'
+import { UsersModule } from './user/user.module'
 
 const envFilePath = `.env.${process.env.NODE_ENV || `development`}`
 
