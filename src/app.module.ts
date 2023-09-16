@@ -5,11 +5,9 @@ import * as Joi from 'joi'
 import { connectionParams } from 'ormconfig'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { LogsController } from './logs/logs.controller'
 import { LogsModule } from './logs/logs.module'
 import { RolesModule } from './roles/roles.module'
-import { RolesService } from './roles/roles.service'
-import { UserModule } from './user/user.module'
+import { UsersModule } from './users/users.module'
 
 const envFilePath = `.env.${process.env.NODE_ENV || `development`}`
 
@@ -33,11 +31,11 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`
       }),
     }),
     TypeOrmModule.forRoot(connectionParams),
-    UserModule,
     LogsModule,
     RolesModule,
+    UsersModule,
   ],
-  controllers: [AppController, LogsController],
-  providers: [AppService, RolesService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

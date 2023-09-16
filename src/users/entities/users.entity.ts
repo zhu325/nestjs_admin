@@ -1,5 +1,5 @@
-import { Logs } from 'src/logs/logs.entity'
-import { Roles } from 'src/roles/roles.entity'
+import { Logs } from '@/logs/entities/logs.entity'
+import { Roles } from '@/roles/entities/roles.entity'
 import { Column, Entity, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm'
 import { Profile } from './profile.entity'
 
