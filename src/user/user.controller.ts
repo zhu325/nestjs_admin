@@ -1,11 +1,18 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common'
+import { Body, Controller, Delete, Get, Inject, LoggerService, Param, Patch, Post } from '@nestjs/common'
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston'
 import { CreateUserDto } from './dto/create-users.dto'
 import { UpdateUserDto } from './dto/update-users.dto'
-import { UsersService } from './user.service'
+import { UserService } from './user.service'
 
 @Controller('users')
-export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+export class UserController {
+  constructor(
+    private readonly usersService: UserService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly logger: LoggerService,
+  ) {
+    this.logger.log('UsersController=================== init')
+  }
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {

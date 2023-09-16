@@ -28,7 +28,7 @@ export function buildConnectionOptions() {
   // configService
   const config = { ...defaultConfig, ...envConfig }
 
-  const logFlag = config['LOG_ON'] === 'true'
+  const logFlag = config['LOG_DB_ON'] === 'true'
 
   const entitiesDir =
     process.env.NODE_ENV === 'test' ? [__dirname + '/**/*.entity.ts'] : [__dirname + '/**/*.entity{.js,.ts}']
